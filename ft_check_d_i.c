@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:20:39 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/22 18:03:53 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/22 18:08:43 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_putnbr(int n)
 	if (nlong >= 10)
 	{
 		total++;
-		ft_putnbr_fd(nlong / 10, fd);
+		ft_putnbr(nlong / 10);
 		str = '0' + nlong % 10;
 	}
 	else
@@ -38,12 +38,12 @@ int	ft_putnbr(int n)
 		total++;
 	}
 	write(1, &str, 1);
+	return (total);
 }
 
 int	ft_check_d_i(va_list args)
 {
 	int	n;
-	int	total;
 
 	n = va_arg(args, int);
 	return(ft_putnbr(n));
