@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:20:39 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/27 13:37:54 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:30:20 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,29 @@ int	ft_putnbr(long nlong)
 {
 	char		str;
 	static int	total;
+	int			j;
 
 	total = 0;
 	if (nlong < 0)
 	{
-		write(1, "-", 1);
+		j = write(1, "-", 1);
 		nlong = nlong * -1;
+		if (j == -1)
+			return (-1);
 	}
 	if (nlong >= 10)
 	{
-		ft_putnbr(nlong / 10);
+		j = ft_putnbr(nlong / 10);
 		str = '0' + (nlong % 10);
+		if (j == -1)
+			return (-1);
 	}
 	else
 		str = '0' + nlong;
 	total++;
-	write(1, &str, 1);
+	j = write(1, &str, 1);
+	if (j == -1)
+		return (-1);
 	return (total);
 }
 

@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:42:16 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/28 16:32:34 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:22:09 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ int	ft_hexa(va_list args, char *base)
 	n_base[i++] = n;
 	total = i;
 	while (--i >= 0)
+	{
 		j = ft_putchar_fd(base[n_base[i]], 1);
-	if (j == -1)
-		return (-1);
+		if (j == -1)
+			return (-1);
+	}
 	return (total);
 }
 

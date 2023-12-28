@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:42:27 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/28 10:42:57 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:55:10 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_check_s(va_list args);
 int		ft_check_x(va_list args, char *base);
 int		ft_check_u(va_list args);
 int		ft_check_p(va_list args);
+int		ft_format(char const *s, int i);
 
 #endif
