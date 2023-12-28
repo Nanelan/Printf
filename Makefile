@@ -4,7 +4,7 @@ LIBFTNAME = libft.a
 LIBFTDIR = ./libft
 CC = gcc
 CLEAN = rm -Rf
-SRC = ft_printf.c ft_conversion.c ft_check_c.c ft_check_d_i.c ft_check_s.c ft_check_x.c 
+SRC = ft_printf.c ft_conversion.c ft_check_c.c ft_check_d_i.c ft_check_s.c ft_check_x.c ft_check_u.c ft_check_p.c 
 
 OBJS = $(SRC:.c=.o)
 

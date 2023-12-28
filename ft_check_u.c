@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_d_i.c                                     :+:      :+:    :+:   */
+/*   ft_check_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 17:20:39 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/27 13:37:54 by crmunoz-         ###   ########.fr       */
+/*   Created: 2023/12/26 10:31:47 by crmunoz-          #+#    #+#             */
+/*   Updated: 2023/12/26 13:28:01 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(long nlong)
+int	ft_putnbr_u(int n)
 {
 	char		str;
+	long int	nlong;
 	static int	total;
 
 	total = 0;
+	nlong = (long int) n;
 	if (nlong < 0)
 	{
-		write(1, "-", 1);
 		nlong = nlong * -1;
 	}
 	if (nlong >= 10)
 	{
-		ft_putnbr(nlong / 10);
-		str = '0' + (nlong % 10);
+		ft_putnbr_u(nlong / 10);
+		total++;
+		str = '0' + nlong % 10;
 	}
 	else
+	{
 		str = '0' + nlong;
-	total++;
+		total++;
+	}
 	write(1, &str, 1);
 	return (total);
 }
 
-int	ft_check_d_i(va_list args)
+int	ft_check_u(va_list args)
 {
-	long	n;
+	int	n;
 
 	n = va_arg(args, int);
-	if (n < 0)
-		return (ft_putnbr(n) + 1);
-	return (ft_putnbr(n));
+	return (ft_putnbr_u(n));
 }

@@ -1,46 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_d_i.c                                     :+:      :+:    :+:   */
+/*   ft_check_p.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 17:20:39 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/27 13:37:54 by crmunoz-         ###   ########.fr       */
+/*   Created: 2023/12/27 15:42:16 by crmunoz-          #+#    #+#             */
+/*   Updated: 2023/12/28 10:56:15 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(long nlong)
+int	ft_check_p(va_list args)
 {
-	char		str;
-	static int	total;
+	int	total;
 
-	total = 0;
-	if (nlong < 0)
-	{
-		write(1, "-", 1);
-		nlong = nlong * -1;
-	}
-	if (nlong >= 10)
-	{
-		ft_putnbr(nlong / 10);
-		str = '0' + (nlong % 10);
-	}
-	else
-		str = '0' + nlong;
-	total++;
-	write(1, &str, 1);
-	return (total);
-}
-
-int	ft_check_d_i(va_list args)
-{
-	long	n;
-
-	n = va_arg(args, int);
-	if (n < 0)
-		return (ft_putnbr(n) + 1);
-	return (ft_putnbr(n));
+	ft_putstr_fd("0x", 1);
+	total = (ft_check_x(args, "0123456789abcdef"));
+	return (total + 2);
 }
