@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:07:32 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/28 10:08:09 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:27:31 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 int	ft_check_x(va_list args, char *base)
 {
-	unsigned int	n;
+	unsigned long	n;
 	int				n_base[16];
 	int				i;
 	int				total;
+	int				j;
 
-	n = va_arg(args, unsigned int);
+	n = va_arg(args, unsigned long);
 	i = 0;
 	total = 0;
-	if (n == 0)
+	while (n >= 16)
 	{
-		ft_putchar_fd('0', 1);
-		return (1);
-	}
-	while (n)
-	{
-		n_base[i] = n % 16;
+		n_base[i++] = n % 16;
 		n = n / 16;
-		i++;
-		total = i;
 	}
+	n_base[i++] = n;
+	total = i;
 	while (--i >= 0)
-		ft_putchar_fd(base[n_base[i]], 1);
+		j = ft_putchar_fd(base[n_base[i]], 1);
+	if (j == -1)
+		return (-1);
 	return (total);
 }

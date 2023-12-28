@@ -6,20 +6,20 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:31:47 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/26 13:28:01 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/28 11:45:53 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_u(int n)
+int	ft_putnbr_u(unsigned int n)
 {
 	char		str;
 	long int	nlong;
 	static int	total;
 
 	total = 0;
-	nlong = (long int) n;
+	nlong = (unsigned long int) n;
 	if (nlong < 0)
 	{
 		nlong = nlong * -1;
@@ -41,8 +41,8 @@ int	ft_putnbr_u(int n)
 
 int	ft_check_u(va_list args)
 {
-	int	n;
+	unsigned int	n;
 
-	n = va_arg(args, int);
+	n = va_arg(args, unsigned int);
 	return (ft_putnbr_u(n));
 }

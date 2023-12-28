@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_c.c                                       :+:      :+:    :+:   */
+/*   ft_format.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 15:50:26 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/28 11:58:45 by crmunoz-         ###   ########.fr       */
+/*   Created: 2023/12/28 16:47:29 by crmunoz-          #+#    #+#             */
+/*   Updated: 2023/12/28 16:52:12 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_c(va_list args)
+int	ft_format(char const *s, int i)
 {
-	char	c;
-
-	c = va_arg(args, int);
-	return (write (1, &c, 1));
+	if (s[i] == '%' && (s[i + 1] == 'c' || s[i + 1] == 's'
+			|| s[i + 1] == 'p' || s[i + 1] == 'd' || s[i + 1] == 'i'
+			|| s[i + 1] == 'u' || s[i + 1] == 'x' || s[i + 1] == 'X'
+			|| s[i + 1] == '%'))
+		return (1);
+	else
+		return (0);
 }

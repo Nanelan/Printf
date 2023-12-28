@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:37:29 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/28 10:09:27 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/28 11:28:45 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_conversion(char s, va_list args)
 	else if (s == 's')
 		return (ft_check_s(args));
 	else if (s == 'p')
-		ft_check_p(args);
+		return (ft_check_p(args));
 	else if (s == 'd' || s == 'i')
 		return (ft_check_d_i(args));
 	else if (s == 'u')
