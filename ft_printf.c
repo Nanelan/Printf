@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:09 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/28 17:02:46 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/29 11:45:41 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,13 @@ int	ft_printf(char const *s, ...)
 	va_start (args, s);
 	while (s[++i])
 	{
-		if (ft_format(s,i) == 1)
-		{
-			temp = ft_conversion(s[i + 1], args);
-			i++;
-			if (temp < 0)
-				return (-1);
-			total += temp;
-		}
+		if (ft_format(s, i) == 1)
+			temp = ft_conversion(s[++i], args);
 		else
-		{
 			temp = write (1, &s[i], 1);
-			if (temp < 0)
-				return (-1);
-			total += temp;
-		}
+		if (temp < 0)
+			return (-1);
+		total += temp;
 	}
 	va_end (args);
 	return (total);

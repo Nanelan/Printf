@@ -6,7 +6,7 @@
 /*   By: crmunoz- <crmunoz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:20:39 by crmunoz-          #+#    #+#             */
-/*   Updated: 2023/12/29 10:48:12 by crmunoz-         ###   ########.fr       */
+/*   Updated: 2023/12/29 11:40:06 by crmunoz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,24 @@ int	ft_putnbr(long nlong)
 	}
 	else
 		str = '0' + nlong;
-	total++;
 	j = write(1, &str, 1);
 	if (j == -1)
 		return (-1);
-	return (total);
+	return (++total);
 }
 
 int	ft_check_d_i(va_list args)
 {
 	long	n;
+	int		j;
 
 	n = va_arg(args, int);
 	if (n < 0)
-		return (ft_putnbr(n) + 1);
+	{
+		j = ft_putnbr(n) + 1;
+		if (j == 0)
+			return (-1);
+		return (j);
+	}
 	return (ft_putnbr(n));
 }
